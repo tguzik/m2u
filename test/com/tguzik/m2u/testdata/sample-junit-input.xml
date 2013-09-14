@@ -1,0 +1,15 @@
+<testsuites version="1.2">
+<testsuite errors="1" failures="5" name="nose2-junit" skips="1" tests="25" time="0.004">
+	<testcase classname="pkg1.test.test_things" name="test_params_func:1" time="0.000093" />
+	<testcase classname="pkg1.test.test_things" name="test_params_func:2" time="0.000098">
+		<failure message="test failure">Traceback (most recent call last):</failure>
+	</testcase>
+	<testcase classname="pkg1.test.test_things" name="test_params_func_multi_arg:1" time="0.000094" />
+	<testcase classname="pkg1.test.test_things" name="test_params_func_multi_arg:2" time="0.000089">
+		<failure message="test failure">Lorem ipsum dolor sit amet</failure>
+	</testcase>
+	<testcase classname="pkg1.test.test_things" name="test_params_func_multi_arg:3" time="0.000096" />
+	<testcase classname="" name="test_fixt" time="0.000091" />
+	<testcase classname="" name="test_func" time="0.000084" />
+</testsuite>
+</testsuites>

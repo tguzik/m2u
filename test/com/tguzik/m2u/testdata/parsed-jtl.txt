@@ -1,0 +1,58 @@
+com.tguzik.m2u.data.jtl.TestResults[
+  version=1.2
+  samples=[com.tguzik.m2u.data.jtl.Sample[
+  assertionResults=<null>
+  elapsedTime=511
+  latency=201
+  timestamp=1234567890123
+  success=true
+  label=link goes here
+  httpResponseCode=200
+  httpResponseMessage=OK
+  threadName=Thread Group 1-1
+  dataType=text
+  dataEncoding=<null>
+  bytes=<null>
+  numberOfActiveThreadsInGroup=<null>
+  numberOfAllActiveThreads=<null>
+  hostname=<null>
+  responseHeader=<null>
+  requestHeader=<null>
+  responseData=<null>
+  samplerData=<null>
+  cookies=<null>
+  method=<null>
+  queryString=<null>
+  url=<null>
+]]
+  httpSamples=[com.tguzik.m2u.data.jtl.HttpSample[
+  assertionResults=[com.tguzik.m2u.data.jtl.AssertionResult[
+  name=OK 2000000
+  failure=false
+  error=false
+  failureMessage=
+]]
+  elapsedTime=943
+  latency=943
+  timestamp=1234567890123
+  success=true
+  label=HTTP Request
+  httpResponseCode=200
+  httpResponseMessage=OK
+  threadName=Thread Group 2-1
+  dataType=text
+  dataEncoding=<null>
+  bytes=274
+  numberOfActiveThreadsInGroup=1
+  numberOfAllActiveThreads=301
+  hostname=<null>
+  responseHeader=<null>
+  requestHeader=<null>
+  responseData=Lorem ipsum dolor sit amet
+  samplerData=<null>
+  cookies=<null>
+  method=<null>
+  queryString=<null>
+  url=<null>
+]]
+]

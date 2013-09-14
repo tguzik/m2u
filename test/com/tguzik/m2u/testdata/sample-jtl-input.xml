@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+	<httpSample t="943" lt="943" ts="1234567890123" s="true" lb="HTTP Request" rc="200" rm="OK" tn="Thread Group 2-1" dt="text" by="274" ng="1" na="301">
+		<assertionResult>
+			<name>OK 2000000</name>
+			<failure>false</failure>
+			<error>false</error>
+			<failureMessage></failureMessage>
+		</assertionResult>
+		<responseData class="java.lang.String">Lorem ipsum dolor sit amet</responseData>
+	</httpSample>
+	<sample t="511" lt="201" ts="1234567890123" s="true" lb="link goes here" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" />
+</testResults>
