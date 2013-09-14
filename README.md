@@ -13,7 +13,7 @@ Currently only these JMeter JTL elements are supported:
 
 
 ## How to build it?
-    mvn package
+    mvn assembly:single
 
 
 ## How to use it?
