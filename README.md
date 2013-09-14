@@ -26,7 +26,7 @@ If the `<name of the test suite>` argument is not given, it will default to "`jm
 ### Tools
 Here's a short list of the tools that I use:
 
-* Eclipse (it's inconvenient to set up source code formatter to use settings from files in IDEA)
+* Eclipse
 * m2e - Maven Integration for Eclipse
 * JDK 7
 
@@ -34,10 +34,8 @@ Here's a short list of the tools that I use:
 ### The files
 * `build/` directory is automatically populated by Maven. After executing `mvn package` you can find the JAR with the application and all dependencies.
 * `.settings/` directory contains formatter, clean up and save action settings for Eclipse.
-* `src/` directory contains sources for the application (well, duh) as well as `log4j.properties` file that is loaded 
-  automatically by the application.
-* `test/` directory contains unit tests and another `log4j.properties` file that enables TRACE log level (required for 
-  some tests).
+* `src/` directory contains sources for the application (well, duh)
+* `test/` directory contains unit tests and few samples of input/output data
 
 
 ### The source
