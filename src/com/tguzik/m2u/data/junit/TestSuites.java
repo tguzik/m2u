@@ -10,45 +10,44 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
  * Represents collection of all of the tests ran
- * 
+ *
  * @author Tomek
  */
-@XStreamAlias( "testsuites" )
-public class TestSuites extends BaseObject
-{
+@XStreamAlias("testsuites")
+public class TestSuites extends BaseObject {
     @XStreamAsAttribute
-    @XStreamAlias( "disabled" )
+    @XStreamAlias("disabled")
     private int disabledTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "errors" )
+    @XStreamAlias("errors")
     private int errorsInTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "failures" )
+    @XStreamAlias("failures")
     private int failuresInTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "name" )
+    @XStreamAlias("name")
     private String testGroupName;
 
     @XStreamAsAttribute
-    @XStreamAlias( "tests" )
+    @XStreamAlias("tests")
     private int totalTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "time" )
+    @XStreamAlias("time")
     private long totalTimeSpent; // miliseconds
 
     @XStreamImplicit
-    @XStreamAlias( "testsuite" )
+    @XStreamAlias("testsuite")
     private final List<TestSuite> testSuites;
 
     public TestSuites() {
         this.testSuites = Lists.newArrayList();
     }
 
-    public List<TestSuite> getTestSuites( ) {
+    public List<TestSuite> getTestSuites() {
         return testSuites;
     }
 
@@ -58,10 +57,10 @@ public class TestSuites extends BaseObject
         this.failuresInTests += ts.getFailuresInTests();
         this.totalTests += ts.getTotalTests();
 
-        this.testSuites.add(ts);
+        this.testSuites.add( ts );
     }
 
-    public int getDisabledTests( ) {
+    public int getDisabledTests() {
         return disabledTests;
     }
 
@@ -69,7 +68,7 @@ public class TestSuites extends BaseObject
         this.disabledTests = disabledTests;
     }
 
-    public int getErrorsInTests( ) {
+    public int getErrorsInTests() {
         return errorsInTests;
     }
 
@@ -77,7 +76,7 @@ public class TestSuites extends BaseObject
         this.errorsInTests = errorsInTests;
     }
 
-    public int getFailuresInTests( ) {
+    public int getFailuresInTests() {
         return failuresInTests;
     }
 
@@ -85,7 +84,7 @@ public class TestSuites extends BaseObject
         this.failuresInTests = failuresInTests;
     }
 
-    public String getTestGroupName( ) {
+    public String getTestGroupName() {
         return testGroupName;
     }
 
@@ -93,7 +92,7 @@ public class TestSuites extends BaseObject
         this.testGroupName = testsuitesGroupName;
     }
 
-    public int getTotalTests( ) {
+    public int getTotalTests() {
         return totalTests;
     }
 
@@ -101,7 +100,7 @@ public class TestSuites extends BaseObject
         this.totalTests = totalTests;
     }
 
-    public long getTotalTimeSpent( ) {
+    public long getTotalTimeSpent() {
         return totalTimeSpent;
     }
 

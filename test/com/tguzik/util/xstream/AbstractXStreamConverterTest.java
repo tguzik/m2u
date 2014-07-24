@@ -6,37 +6,32 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AbstractXStreamConverterTest
-{
+public class AbstractXStreamConverterTest {
     private AbstractXStreamConverterHelper xstream;
 
     @Before
-    public void setUp( ) throws Exception {
+    public void setUp() throws Exception {
         xstream = new AbstractXStreamConverterHelper();
     }
 
     @Test
-    public void testParse_omitsUnknownFields( ) {
-        String xml = "<dataobj>\n"
-                     + "  <name>That is the name field</name>\n"
-                     + "  <number>1234</number>\n"
-                     + "</dataobj>";
+    public void testParse_omitsUnknownFields() {
+        String xml =
+                "<dataobj>\n" + "  <name>That is the name field</name>\n" + "  <number>1234</number>\n" + "</dataobj>";
 
-        SampleDataObject sdo = xstream.fromXML(xml);
+        SampleDataObject sdo = xstream.fromXML( xml );
 
-        assertEquals(xml, removeCharacterFeed(xstream.toXML(sdo)));
-        assertEquals("com.tguzik.util.xstream.SampleDataObject[\n"
-                     + "  name=That is the name field\n"
-                     + "  number=1234\n"
-                     + "]", //
-                     removeCharacterFeed(sdo.toString()));
+        assertEquals( xml, removeCharacterFeed( xstream.toXML( sdo ) ) );
+        assertEquals(
+                "com.tguzik.util.xstream.SampleDataObject[\n" + "  name=That is the name field\n" + "  number=1234\n" +
+                "]", //
+                removeCharacterFeed( sdo.toString() ) );
     }
 }
 
-class AbstractXStreamConverterHelper extends AbstractXStreamConverter<SampleDataObject>
-{
+class AbstractXStreamConverterHelper extends AbstractXStreamConverter<SampleDataObject> {
     public AbstractXStreamConverterHelper() {
         super();
-        xstream.processAnnotations(SampleDataObject.class);
+        xstream.processAnnotations( SampleDataObject.class );
     }
 }

@@ -8,43 +8,42 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-@XStreamAlias( "testcase" )
-public class TestCase extends BaseObject
-{
+@XStreamAlias("testcase")
+public class TestCase extends BaseObject {
     @XStreamAsAttribute
-    @XStreamAlias( "assertions" )
+    @XStreamAlias("assertions")
     private int assertions;
 
     @XStreamAsAttribute
-    @XStreamAlias( "classname" )
+    @XStreamAlias("classname")
     private String classname;
 
     @XStreamAsAttribute
-    @XStreamAlias( "name" )
+    @XStreamAlias("name")
     private String testName;
 
     @XStreamAsAttribute
-    @XStreamAlias( "status" )
+    @XStreamAlias("status")
     private String status;
 
     @XStreamAsAttribute
-    @XStreamAlias( "time" )
+    @XStreamAlias("time")
     private double totalTimeSpentInSeconds;
 
     @XStreamImplicit
-    @XStreamAlias( "error" )
+    @XStreamAlias("error")
     private final List<Error> errors;
 
     @XStreamImplicit
-    @XStreamAlias( "failure" )
+    @XStreamAlias("failure")
     private final List<Failure> failures;
 
-    @XStreamImplicit( itemFieldName = "system-out" )
-    @XStreamAlias( "system-out" )
+    @XStreamImplicit(itemFieldName = "system-out")
+    @XStreamAlias("system-out")
     private final List<String> systemOut;
 
     @XStreamImplicit
-    @XStreamAlias( "system-err" )
+    @XStreamAlias("system-err")
     private final List<String> systemErr;
 
     public TestCase() {
@@ -54,7 +53,7 @@ public class TestCase extends BaseObject
         this.systemErr = Lists.newArrayList();
     }
 
-    public int getAssertions( ) {
+    public int getAssertions() {
         return assertions;
     }
 
@@ -62,7 +61,7 @@ public class TestCase extends BaseObject
         this.assertions = assertions;
     }
 
-    public String getClassname( ) {
+    public String getClassname() {
         return classname;
     }
 
@@ -70,7 +69,7 @@ public class TestCase extends BaseObject
         this.classname = classname;
     }
 
-    public String getTestName( ) {
+    public String getTestName() {
         return testName;
     }
 
@@ -78,7 +77,7 @@ public class TestCase extends BaseObject
         this.testName = testName;
     }
 
-    public String getStatus( ) {
+    public String getStatus() {
         return status;
     }
 
@@ -86,7 +85,7 @@ public class TestCase extends BaseObject
         this.status = status;
     }
 
-    public double getTotalTimeSpent( ) {
+    public double getTotalTimeSpent() {
         return totalTimeSpentInSeconds;
     }
 
@@ -94,35 +93,35 @@ public class TestCase extends BaseObject
         this.totalTimeSpentInSeconds = totalTimeSpent;
     }
 
-    public List<Error> getErrors( ) {
+    public List<Error> getErrors() {
         return errors;
     }
 
     public void addError( Error e ) {
-        this.errors.add(e);
+        this.errors.add( e );
     }
 
-    public List<Failure> getFailures( ) {
+    public List<Failure> getFailures() {
         return failures;
     }
 
     public void addFailure( Failure f ) {
-        this.failures.add(f);
+        this.failures.add( f );
     }
 
-    public List<String> getSystemOut( ) {
+    public List<String> getSystemOut() {
         return systemOut;
     }
 
     public void addSystemOut( String systemOut ) {
-        this.systemOut.add(systemOut);
+        this.systemOut.add( systemOut );
     }
 
-    public List<String> getSystemErr( ) {
+    public List<String> getSystemErr() {
         return systemErr;
     }
 
     public void addSystemErr( String systemErr ) {
-        this.systemErr.add(systemErr);
+        this.systemErr.add( systemErr );
     }
 }

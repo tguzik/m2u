@@ -11,100 +11,99 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 /**
  * Some of the fields might seem to have redundant @XStreamAlias annotations,
  * but that comes in handy when renaming the field.
- * 
+ *
  * @author Tomek
  */
-public class BaseSample extends BaseObject
-{
+public class BaseSample extends BaseObject {
     @XStreamImplicit
-    @XStreamAlias( "assertionResult" )
+    @XStreamAlias("assertionResult")
     private List<AssertionResult> assertionResults;
 
     @XStreamAsAttribute
-    @XStreamAlias( "t" )
+    @XStreamAlias("t")
     private Integer elapsedTime; // miliseconds
 
     @XStreamAsAttribute
-    @XStreamAlias( "lt" )
+    @XStreamAlias("lt")
     private Integer latency; // miliseconds
 
     @XStreamAsAttribute
-    @XStreamAlias( "ts" )
+    @XStreamAlias("ts")
     private Long timestamp;
 
     @XStreamAsAttribute
-    @XStreamAlias( "s" )
+    @XStreamAlias("s")
     private boolean success;
 
     @XStreamAsAttribute
-    @XStreamAlias( "lb" )
+    @XStreamAlias("lb")
     private String label;
 
     @XStreamAsAttribute
-    @XStreamAlias( "rc" )
+    @XStreamAlias("rc")
     private Integer httpResponseCode;
 
     @XStreamAsAttribute
-    @XStreamAlias( "rm" )
+    @XStreamAlias("rm")
     private String httpResponseMessage;
 
     @XStreamAsAttribute
-    @XStreamAlias( "tn" )
+    @XStreamAlias("tn")
     private String threadName;
 
     @XStreamAsAttribute
-    @XStreamAlias( "dt" )
+    @XStreamAlias("dt")
     private String dataType;
 
     @XStreamAsAttribute
-    @XStreamAlias( "de" )
+    @XStreamAlias("de")
     private String dataEncoding;
 
     @XStreamAsAttribute
-    @XStreamAlias( "by" )
+    @XStreamAlias("by")
     private Integer bytes;
 
     @XStreamAsAttribute
-    @XStreamAlias( "ng" )
+    @XStreamAlias("ng")
     private Integer numberOfActiveThreadsInGroup;
 
     @XStreamAsAttribute
-    @XStreamAlias( "na" )
+    @XStreamAlias("na")
     private Integer numberOfAllActiveThreads;
 
     @XStreamAsAttribute
-    @XStreamAlias( "hn" )
+    @XStreamAlias("hn")
     private String hostname;
 
-    @XStreamAlias( "responseHeader" )
+    @XStreamAlias("responseHeader")
     private String responseHeader;
 
-    @XStreamAlias( "requestHeader" )
+    @XStreamAlias("requestHeader")
     private String requestHeader;
 
-    @XStreamAlias( "responseData" )
+    @XStreamAlias("responseData")
     private String responseData;
 
-    @XStreamAlias( "samplerData" )
+    @XStreamAlias("samplerData")
     private String samplerData;
 
-    @XStreamAlias( "cookies" )
+    @XStreamAlias("cookies")
     private String cookies;
 
-    @XStreamAlias( "method" )
+    @XStreamAlias("method")
     private String method;
 
-    @XStreamAlias( "queryString" )
+    @XStreamAlias("queryString")
     private String queryString;
 
-    @XStreamAlias( "java.net.URL" )
+    @XStreamAlias("java.net.URL")
     private String url;
 
     public BaseSample() {
         this.assertionResults = Lists.newArrayList();
     }
 
-    public List<AssertionResult> getAssertionResults( ) {
+    public List<AssertionResult> getAssertionResults() {
         return assertionResults;
     }
 
@@ -112,7 +111,7 @@ public class BaseSample extends BaseObject
         this.assertionResults = assertionResults;
     }
 
-    public Integer getElapsedTime( ) {
+    public Integer getElapsedTime() {
         return elapsedTime;
     }
 
@@ -120,7 +119,7 @@ public class BaseSample extends BaseObject
         this.elapsedTime = elapsedTime;
     }
 
-    public Integer getLatency( ) {
+    public Integer getLatency() {
         return latency;
     }
 
@@ -128,7 +127,7 @@ public class BaseSample extends BaseObject
         this.latency = latency;
     }
 
-    public Long getTimestamp( ) {
+    public Long getTimestamp() {
         return timestamp;
     }
 
@@ -136,7 +135,7 @@ public class BaseSample extends BaseObject
         this.timestamp = timestamp;
     }
 
-    public boolean isSuccess( ) {
+    public boolean isSuccess() {
         return success;
     }
 
@@ -144,7 +143,7 @@ public class BaseSample extends BaseObject
         this.success = success;
     }
 
-    public String getLabel( ) {
+    public String getLabel() {
         return label;
     }
 
@@ -152,7 +151,7 @@ public class BaseSample extends BaseObject
         this.label = label;
     }
 
-    public Integer getHttpResponseCode( ) {
+    public Integer getHttpResponseCode() {
         return httpResponseCode;
     }
 
@@ -160,7 +159,7 @@ public class BaseSample extends BaseObject
         this.httpResponseCode = httpResponseCode;
     }
 
-    public String getHttpResponseMessage( ) {
+    public String getHttpResponseMessage() {
         return httpResponseMessage;
     }
 
@@ -168,7 +167,7 @@ public class BaseSample extends BaseObject
         this.httpResponseMessage = httpResponseMessage;
     }
 
-    public String getThreadName( ) {
+    public String getThreadName() {
         return threadName;
     }
 
@@ -176,7 +175,7 @@ public class BaseSample extends BaseObject
         this.threadName = threadName;
     }
 
-    public String getDataType( ) {
+    public String getDataType() {
         return dataType;
     }
 
@@ -184,7 +183,7 @@ public class BaseSample extends BaseObject
         this.dataType = dataType;
     }
 
-    public String getDataEncoding( ) {
+    public String getDataEncoding() {
         return dataEncoding;
     }
 
@@ -192,7 +191,7 @@ public class BaseSample extends BaseObject
         this.dataEncoding = dataEncoding;
     }
 
-    public Integer getBytes( ) {
+    public Integer getBytes() {
         return bytes;
     }
 
@@ -200,7 +199,7 @@ public class BaseSample extends BaseObject
         this.bytes = bytes;
     }
 
-    public Integer getNumberOfActiveThreadsInGroup( ) {
+    public Integer getNumberOfActiveThreadsInGroup() {
         return numberOfActiveThreadsInGroup;
     }
 
@@ -208,7 +207,7 @@ public class BaseSample extends BaseObject
         this.numberOfActiveThreadsInGroup = numberOfActiveThreadsInGroup;
     }
 
-    public Integer getNumberOfAllActiveThreads( ) {
+    public Integer getNumberOfAllActiveThreads() {
         return numberOfAllActiveThreads;
     }
 
@@ -216,7 +215,7 @@ public class BaseSample extends BaseObject
         this.numberOfAllActiveThreads = numberOfAllActiveThreads;
     }
 
-    public String getHostname( ) {
+    public String getHostname() {
         return hostname;
     }
 
@@ -224,7 +223,7 @@ public class BaseSample extends BaseObject
         this.hostname = hostname;
     }
 
-    public String getResponseHeader( ) {
+    public String getResponseHeader() {
         return responseHeader;
     }
 
@@ -232,7 +231,7 @@ public class BaseSample extends BaseObject
         this.responseHeader = responseHeader;
     }
 
-    public String getRequestHeader( ) {
+    public String getRequestHeader() {
         return requestHeader;
     }
 
@@ -240,7 +239,7 @@ public class BaseSample extends BaseObject
         this.requestHeader = requestHeader;
     }
 
-    public String getResponseData( ) {
+    public String getResponseData() {
         return responseData;
     }
 
@@ -248,7 +247,7 @@ public class BaseSample extends BaseObject
         this.responseData = responseData;
     }
 
-    public String getSamplerData( ) {
+    public String getSamplerData() {
         return samplerData;
     }
 
@@ -256,7 +255,7 @@ public class BaseSample extends BaseObject
         this.samplerData = samplerData;
     }
 
-    public String getCookies( ) {
+    public String getCookies() {
         return cookies;
     }
 
@@ -264,7 +263,7 @@ public class BaseSample extends BaseObject
         this.cookies = cookies;
     }
 
-    public String getMethod( ) {
+    public String getMethod() {
         return method;
     }
 
@@ -272,7 +271,7 @@ public class BaseSample extends BaseObject
         this.method = method;
     }
 
-    public String getQueryString( ) {
+    public String getQueryString() {
         return queryString;
     }
 
@@ -280,7 +279,7 @@ public class BaseSample extends BaseObject
         this.queryString = queryString;
     }
 
-    public String getUrl( ) {
+    public String getUrl() {
         return url;
     }
 

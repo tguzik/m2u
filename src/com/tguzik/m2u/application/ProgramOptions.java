@@ -2,13 +2,12 @@ package com.tguzik.m2u.application;
 
 import com.tguzik.util.BaseObject;
 
-public class ProgramOptions extends BaseObject
-{
+public class ProgramOptions extends BaseObject {
     private String inputFileName;
     private String outputFileName;
     private String testSuiteName = "jmeter";
 
-    public String getInputFileName( ) {
+    public String getInputFileName() {
         return inputFileName;
     }
 
@@ -16,7 +15,7 @@ public class ProgramOptions extends BaseObject
         this.inputFileName = inputFileName;
     }
 
-    public String getOutputFileName( ) {
+    public String getOutputFileName() {
         return outputFileName;
     }
 
@@ -24,7 +23,7 @@ public class ProgramOptions extends BaseObject
         this.outputFileName = outputFileName;
     }
 
-    public String getTestSuiteName( ) {
+    public String getTestSuiteName() {
         return testSuiteName;
     }
 

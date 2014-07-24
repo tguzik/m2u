@@ -3,13 +3,12 @@ package com.tguzik.util.xstream;
 import com.tguzik.util.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XStreamAlias( "dataobj" )
-class SampleDataObject extends BaseObject
-{
+@XStreamAlias("dataobj")
+class SampleDataObject extends BaseObject {
     private String name;
     private int number;
 
-    public String getName( ) {
+    public String getName() {
         return name;
     }
 
@@ -17,7 +16,7 @@ class SampleDataObject extends BaseObject
         this.name = name;
     }
 
-    public int getNumber( ) {
+    public int getNumber() {
         return number;
     }
 

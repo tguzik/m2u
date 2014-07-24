@@ -3,22 +3,21 @@ package com.tguzik.m2u.data.jtl;
 import com.tguzik.util.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XStreamAlias( "assertionResult" )
-public class AssertionResult extends BaseObject
-{
-    @XStreamAlias( "name" )
+@XStreamAlias("assertionResult")
+public class AssertionResult extends BaseObject {
+    @XStreamAlias("name")
     private String name;
 
-    @XStreamAlias( "failure" )
+    @XStreamAlias("failure")
     private boolean failure;
 
-    @XStreamAlias( "error" )
+    @XStreamAlias("error")
     private boolean error;
 
-    @XStreamAlias( "failureMessage" )
+    @XStreamAlias("failureMessage")
     private String failureMessage;
 
-    public String getName( ) {
+    public String getName() {
         return name;
     }
 
@@ -26,7 +25,7 @@ public class AssertionResult extends BaseObject
         this.name = name;
     }
 
-    public boolean isFailure( ) {
+    public boolean isFailure() {
         return failure;
     }
 
@@ -34,7 +33,7 @@ public class AssertionResult extends BaseObject
         this.failure = failure;
     }
 
-    public boolean isError( ) {
+    public boolean isError() {
         return error;
     }
 
@@ -42,7 +41,7 @@ public class AssertionResult extends BaseObject
         this.error = error;
     }
 
-    public String getFailureMessage( ) {
+    public String getFailureMessage() {
         return failureMessage;
     }
 

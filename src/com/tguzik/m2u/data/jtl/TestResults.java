@@ -10,18 +10,20 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
  * View of the data parsed:
- * 
+ * <p/>
  * <pre>
  * {@code
  * <?xml version="1.0" encoding="UTF-8"?>
  * <testResults version="1.2">
- *     <sample t="0" lt="0" ts="0" s="true" lb="Label" rc="200" rm="OK" tn="Thread Group" dt="text" de="" by="0" ng="0" na="0" hn="0">
+ *     <sample t="0" lt="0" ts="0" s="true" lb="Label" rc="200" rm="OK" tn="Thread Group" dt="text" de="" by="0"
+ *     ng="0" na="0" hn="0">
  *       <responseHeader class="java.lang.String">text</responseHeader>
  *       <requestHeader class="java.lang.String">text</requestHeader>
  *       <responseData class="java.lang.String"></responseData>
  *       <samplerData class="java.lang.String">text</samplerData>
  *     </sample>
- *     <httpSample t="0" lt="0" ts="0" s="true" lb="Label" rc="200" rm="OK" tn="Thread Group" dt="text" de="utf-8" by="0" ng="0" na="0" hn="0">
+ *     <httpSample t="0" lt="0" ts="0" s="true" lb="Label" rc="200" rm="OK" tn="Thread Group" dt="text" de="utf-8"
+ *     by="0" ng="0" na="0" hn="0">
  *       <assertionResult>
  *         <name>Assertion name</name>
  *         <failure>false</failure>
@@ -36,28 +38,27 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  *       <queryString class="java.lang.String">text</queryString>
  *       <java.net.URL>text</java.net.URL>
  *     </httpSample>
- *     
+ *
  *     <!-- more sample and httpSample elements -->
- *     
+ *
  * </testResults>
  * }
  * </pre>
- * 
- * @see http://jmeter.apache.org/usermanual/listeners.html#attributes
+ *
  * @author Tomek
+ * @see http://jmeter.apache.org/usermanual/listeners.html#attributes
  */
-@XStreamAlias( "testResults" )
-public class TestResults extends BaseObject
-{
+@XStreamAlias("testResults")
+public class TestResults extends BaseObject {
     @XStreamAsAttribute
     private String version;
 
     @XStreamImplicit
-    @XStreamAlias( impl = Sample.class, value = "sample" )
+    @XStreamAlias(impl = Sample.class, value = "sample")
     private final List<Sample> samples;
 
     @XStreamImplicit
-    @XStreamAlias( impl = HttpSample.class, value = "httpSample" )
+    @XStreamAlias(impl = HttpSample.class, value = "httpSample")
     private List<HttpSample> httpSamples;
 
     public TestResults() {
@@ -65,7 +66,7 @@ public class TestResults extends BaseObject
         this.httpSamples = Lists.newArrayList();
     }
 
-    public String getVersion( ) {
+    public String getVersion() {
         return version;
     }
 
@@ -73,20 +74,20 @@ public class TestResults extends BaseObject
         this.version = version;
     }
 
-    public List<Sample> getSamples( ) {
+    public List<Sample> getSamples() {
         return samples;
     }
 
     public void addSample( Sample sample ) {
-        this.samples.add(sample);
+        this.samples.add( sample );
     }
 
-    public List<HttpSample> getHttpSamples( ) {
+    public List<HttpSample> getHttpSamples() {
         return httpSamples;
     }
 
     public void addHttpSample( HttpSample sample ) {
-        this.httpSamples.add(sample);
+        this.httpSamples.add( sample );
     }
 
     public void setHttpSamples( List<HttpSample> httpSamples ) {

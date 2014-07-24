@@ -11,64 +11,62 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
+ * @author Tomek
  * @see <pre>
  * http://stackoverflow.com/questions/4922867/junit-xml-format-specification-that-hudson-supports
  * </pre>
- * 
- * @author Tomek
  */
-@XStreamAlias( "testsuite" )
-public class TestSuite extends BaseObject
-{
+@XStreamAlias("testsuite")
+public class TestSuite extends BaseObject {
     @XStreamAsAttribute
-    @XStreamAlias( "disabled" )
+    @XStreamAlias("disabled")
     private int disabledTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "errors" )
+    @XStreamAlias("errors")
     private int errorsInTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "failures" )
+    @XStreamAlias("failures")
     private int failuresInTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "tests" )
+    @XStreamAlias("tests")
     private int totalTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "hostname" )
+    @XStreamAlias("hostname")
     private String hostname;
 
     @XStreamAsAttribute
-    @XStreamAlias( "id" )
+    @XStreamAlias("id")
     private String id;
 
     @XStreamAsAttribute
-    @XStreamAlias( "name" )
+    @XStreamAlias("name")
     private String name;
 
     @XStreamAsAttribute
-    @XStreamAlias( "package" )
+    @XStreamAlias("package")
     private String packageName;
 
     @XStreamAsAttribute
-    @XStreamAlias( "skipped" )
+    @XStreamAlias("skipped")
     private int skippedTests;
 
     @XStreamAsAttribute
-    @XStreamAlias( "tests" )
+    @XStreamAlias("tests")
     private long timeSpentInMillis;
 
     @XStreamAsAttribute
-    @XStreamAlias( "timestamp" )
+    @XStreamAlias("timestamp")
     private long timestamp;
 
-    @XStreamAlias( "properties" )
+    @XStreamAlias("properties")
     private final Map<String, String> properties;
 
     @XStreamImplicit
-    @XStreamAlias( "testcase" )
+    @XStreamAlias("testcase")
     private final List<TestCase> testCases;
 
     public TestSuite() {
@@ -76,7 +74,7 @@ public class TestSuite extends BaseObject
         this.testCases = Lists.newArrayList();
     }
 
-    public int getDisabledTests( ) {
+    public int getDisabledTests() {
         return disabledTests;
     }
 
@@ -84,7 +82,7 @@ public class TestSuite extends BaseObject
         this.disabledTests = disabledTests;
     }
 
-    public int getErrorsInTests( ) {
+    public int getErrorsInTests() {
         return errorsInTests;
     }
 
@@ -92,7 +90,7 @@ public class TestSuite extends BaseObject
         this.errorsInTests = errorsInTests;
     }
 
-    public int getFailuresInTests( ) {
+    public int getFailuresInTests() {
         return failuresInTests;
     }
 
@@ -100,7 +98,7 @@ public class TestSuite extends BaseObject
         this.failuresInTests = failuresInTests;
     }
 
-    public int getTotalTests( ) {
+    public int getTotalTests() {
         return totalTests;
     }
 
@@ -108,7 +106,7 @@ public class TestSuite extends BaseObject
         this.totalTests = totalTests;
     }
 
-    public String getHostname( ) {
+    public String getHostname() {
         return hostname;
     }
 
@@ -116,7 +114,7 @@ public class TestSuite extends BaseObject
         this.hostname = hostname;
     }
 
-    public String getId( ) {
+    public String getId() {
         return id;
     }
 
@@ -124,7 +122,7 @@ public class TestSuite extends BaseObject
         this.id = id;
     }
 
-    public String getName( ) {
+    public String getName() {
         return name;
     }
 
@@ -132,7 +130,7 @@ public class TestSuite extends BaseObject
         this.name = name;
     }
 
-    public String getPackageName( ) {
+    public String getPackageName() {
         return packageName;
     }
 
@@ -140,7 +138,7 @@ public class TestSuite extends BaseObject
         this.packageName = packageName;
     }
 
-    public int getSkippedTests( ) {
+    public int getSkippedTests() {
         return skippedTests;
     }
 
@@ -148,7 +146,7 @@ public class TestSuite extends BaseObject
         this.skippedTests = skippedTests;
     }
 
-    public long getTimeSpent( ) {
+    public long getTimeSpent() {
         return timeSpentInMillis;
     }
 
@@ -156,7 +154,7 @@ public class TestSuite extends BaseObject
         this.timeSpentInMillis = timeSpent;
     }
 
-    public long getTimestamp( ) {
+    public long getTimestamp() {
         return timestamp;
     }
 
@@ -164,15 +162,15 @@ public class TestSuite extends BaseObject
         this.timestamp = timestamp;
     }
 
-    public Map<String, String> getProperties( ) {
+    public Map<String, String> getProperties() {
         return properties;
     }
 
     public void addProperty( String key, Object value ) {
-        this.properties.put(key, String.format("%s", value));
+        this.properties.put( key, String.format( "%s", value ) );
     }
 
-    public List<TestCase> getTestCases( ) {
+    public List<TestCase> getTestCases() {
         return testCases;
     }
 
@@ -180,6 +178,6 @@ public class TestSuite extends BaseObject
         this.errorsInTests += tc.getErrors().size();
         this.failuresInTests += tc.getFailures().size();
         this.timeSpentInMillis += tc.getTotalTimeSpent();
-        this.testCases.add(tc);
+        this.testCases.add( tc );
     }
 }

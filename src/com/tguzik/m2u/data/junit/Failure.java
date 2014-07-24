@@ -4,18 +4,17 @@ import com.tguzik.util.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
-@XStreamAlias( "failure" )
-public class Failure extends BaseObject
-{
+@XStreamAlias("failure")
+public class Failure extends BaseObject {
     @XStreamAsAttribute
-    @XStreamAlias( "message" )
+    @XStreamAlias("message")
     private String message;
 
     @XStreamAsAttribute
-    @XStreamAlias( "type" )
+    @XStreamAlias("type")
     private String type;
 
-    public String getMessage( ) {
+    public String getMessage() {
         return message;
     }
 
@@ -23,7 +22,7 @@ public class Failure extends BaseObject
         this.message = message;
     }
 
-    public String getType( ) {
+    public String getType() {
         return type;
     }
 

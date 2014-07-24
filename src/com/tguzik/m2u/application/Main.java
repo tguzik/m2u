@@ -1,10 +1,6 @@
 package com.tguzik.m2u.application;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 import com.tguzik.m2u.data.JtlToJunitConverter;
 import com.tguzik.m2u.data.jtl.TestResults;
@@ -17,11 +13,10 @@ import com.tguzik.m2u.xml.JunitXmlConverter;
  * files are not supported yet - it would require some awkward command line
  * tricks.
  */
-public class Main
-{
+public class Main {
     public static void main( String[] args ) throws Exception {
-        ProgramOptions po = CommandLineParser.parse(args);
-        new Main(po).process();
+        ProgramOptions po = CommandLineParser.parse( args );
+        new Main( po ).process();
     }
 
     private final ProgramOptions programOptions;
@@ -30,15 +25,15 @@ public class Main
         this.programOptions = po;
     }
 
-    public void process( ) throws IOException {
-        final InputStreamReader input = new FileReader(programOptions.getInputFileName());
-        final OutputStreamWriter output = new FileWriter(programOptions.getOutputFileName());
+    public void process() throws IOException {
+        final InputStreamReader input = new FileReader( programOptions.getInputFileName() );
+        final OutputStreamWriter output = new FileWriter( programOptions.getOutputFileName() );
 
-        TestResults jmeterResults = new JmeterXmlConverter().fromXML(input);
+        TestResults jmeterResults = new JmeterXmlConverter().fromXML( input );
 
-        TestSuites junitResults = new JtlToJunitConverter(programOptions).apply(jmeterResults);
+        TestSuites junitResults = new JtlToJunitConverter( programOptions ).apply( jmeterResults );
 
-        new JunitXmlConverter().toXML(junitResults, output);
+        new JunitXmlConverter().toXML( junitResults, output );
 
         input.close();
         output.close();
