@@ -31,6 +31,6 @@ public class TestHelper {
     }
 
     public static String removeCharacterFeed( String in ) {
-        return CharMatcher.anyOf( "\r" ).removeFrom( in );
+        return in.trim().replaceAll( "\\r?\\n\\r?", "\n" );
     }
 }
