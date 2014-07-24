@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tguzik</groupId>
     <artifactId>m2u</artifactId>
-    <version>2013.09</version>
-    <name>jtl2junit</name>
+    <version>2014.xx-SNAPSHOT</version>
+    <name>m2u</name>
     <packaging>jar</packaging>
 
     <url>>http://github.com/tguzik/m2u</url>
