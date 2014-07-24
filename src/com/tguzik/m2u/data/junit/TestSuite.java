@@ -6,7 +6,6 @@ import java.util.Map;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.tguzik.util.BaseObject;
-import com.tguzik.util.annotations.ReflectionInstanitation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -18,7 +17,6 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  * 
  * @author Tomek
  */
-@ReflectionInstanitation
 @XStreamAlias( "testsuite" )
 public class TestSuite extends BaseObject
 {
@@ -60,7 +58,7 @@ public class TestSuite extends BaseObject
 
     @XStreamAsAttribute
     @XStreamAlias( "tests" )
-    private long timeSpent; // milliseconds
+    private long timeSpentInMillis;
 
     @XStreamAsAttribute
     @XStreamAlias( "timestamp" )
@@ -151,11 +149,11 @@ public class TestSuite extends BaseObject
     }
 
     public long getTimeSpent( ) {
-        return timeSpent;
+        return timeSpentInMillis;
     }
 
     public void setTimeSpent( long timeSpent ) {
-        this.timeSpent = timeSpent;
+        this.timeSpentInMillis = timeSpent;
     }
 
     public long getTimestamp( ) {
@@ -181,7 +179,7 @@ public class TestSuite extends BaseObject
     public void addTestCase( TestCase tc ) {
         this.errorsInTests += tc.getErrors().size();
         this.failuresInTests += tc.getFailures().size();
-        this.timeSpent += tc.getTotalTimeSpent();
+        this.timeSpentInMillis += tc.getTotalTimeSpent();
         this.testCases.add(tc);
     }
 }

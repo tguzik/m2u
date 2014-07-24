@@ -12,20 +12,21 @@ public class OmittingXStream extends XStream
     protected MapperWrapper wrapMapper( MapperWrapper next ) {
         return new OmittingMapperWrapper(next);
     }
-}
 
-class OmittingMapperWrapper extends MapperWrapper
-{
-    public OmittingMapperWrapper( Mapper wrapped ) {
-        super(wrapped);
-    }
-
-    @Override
-    public boolean shouldSerializeMember( @SuppressWarnings( "rawtypes" ) Class definedIn, String fieldName ) {
-        if ( Objects.equals(Object.class, definedIn) ) {
-            return false;
+    private static class OmittingMapperWrapper extends MapperWrapper
+    {
+        public OmittingMapperWrapper( Mapper wrapped ) {
+            super(wrapped);
         }
 
-        return super.shouldSerializeMember(definedIn, fieldName);
+        @Override
+        public boolean shouldSerializeMember( @SuppressWarnings( "rawtypes" ) Class definedIn,
+                                              String fieldName ) {
+            if ( Objects.equals(Object.class, definedIn) ) {
+                return false;
+            }
+
+            return super.shouldSerializeMember(definedIn, fieldName);
+        }
     }
 }

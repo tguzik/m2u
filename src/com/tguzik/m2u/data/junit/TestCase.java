@@ -4,12 +4,10 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.tguzik.util.BaseObject;
-import com.tguzik.util.annotations.ReflectionInstanitation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
-@ReflectionInstanitation
 @XStreamAlias( "testcase" )
 public class TestCase extends BaseObject
 {
@@ -31,7 +29,7 @@ public class TestCase extends BaseObject
 
     @XStreamAsAttribute
     @XStreamAlias( "time" )
-    private double totalTimeSpent; // seconds
+    private double totalTimeSpentInSeconds;
 
     @XStreamImplicit
     @XStreamAlias( "error" )
@@ -89,11 +87,11 @@ public class TestCase extends BaseObject
     }
 
     public double getTotalTimeSpent( ) {
-        return totalTimeSpent;
+        return totalTimeSpentInSeconds;
     }
 
     public void setTotalTimeSpent( long totalTimeSpent ) {
-        this.totalTimeSpent = totalTimeSpent;
+        this.totalTimeSpentInSeconds = totalTimeSpent;
     }
 
     public List<Error> getErrors( ) {

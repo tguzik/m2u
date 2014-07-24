@@ -1,11 +1,9 @@
 package com.tguzik.m2u.data.junit;
 
 import com.tguzik.util.BaseObject;
-import com.tguzik.util.annotations.ReflectionInstanitation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
-@ReflectionInstanitation
 @XStreamAlias( "failure" )
 public class Failure extends BaseObject
 {

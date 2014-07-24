@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.tguzik.util.BaseObject;
-import com.tguzik.util.annotations.ReflectionInstanitation;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -47,7 +46,6 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  * @see http://jmeter.apache.org/usermanual/listeners.html#attributes
  * @author Tomek
  */
-@ReflectionInstanitation
 @XStreamAlias( "testResults" )
 public class TestResults extends BaseObject
 {
