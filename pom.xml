@@ -13,6 +13,10 @@
         <url>https://github.com/tguzik/m2u.git</url>
         <connection>https://github.com/tguzik/m2u.git</connection>
     </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/tguzik/m2u/issues</url>
+    </issueManagement>
     <inceptionYear>2012</inceptionYear>
     <licenses>
         <license>
@@ -29,7 +33,6 @@
     </reporting>
 
     <dependencies>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -50,7 +53,6 @@
             <artifactId>xstream</artifactId>
             <version>1.4.4</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -75,22 +77,17 @@
         <finalName>${project.name}</finalName>
         <sourceDirectory>src</sourceDirectory>
         <testSourceDirectory>test</testSourceDirectory>
-        <outputDirectory>${project.build.directory}/classes</outputDirectory>
-        <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
-        <directory>build</directory>
-        <defaultGoal>assembly:single</defaultGoal>
+        <defaultGoal>clean compile test assembly:single</defaultGoal>
 
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <appendAssemblyId>false</appendAssemblyId>
-
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <mainClass>com.tguzik.m2u.application.Main</mainClass>
-
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -115,8 +112,4 @@
             </plugin>
         </plugins>
     </build>
-    <issueManagement>
-        <system>GitHub Issues</system>
-        <url>https://github.com/tguzik/m2u/issues</url>
-    </issueManagement>
 </project>
