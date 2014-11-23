@@ -3,7 +3,7 @@ package com.tguzik.m2u.data.junit;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -123,5 +123,10 @@ public class TestCase extends BaseObject {
 
     public void addSystemErr( String systemErr ) {
         this.systemErr.add( systemErr );
+    }
+
+    @Override
+    public String toString() {
+        return toString( MULTILINE_NO_ADDRESS_STYLE );
     }
 }

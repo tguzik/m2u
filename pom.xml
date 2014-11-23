@@ -49,6 +49,11 @@
             <version>1.2</version>
         </dependency>
         <dependency>
+            <groupId>com.tguzik</groupId>
+            <artifactId>valueclasses</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.4.4</version>

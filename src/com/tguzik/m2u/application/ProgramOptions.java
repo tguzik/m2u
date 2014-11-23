@@ -1,6 +1,6 @@
 package com.tguzik.m2u.application;
 
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 
 public class ProgramOptions extends BaseObject {
     private String inputFileName;

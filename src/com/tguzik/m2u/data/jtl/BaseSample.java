@@ -3,7 +3,7 @@ package com.tguzik.m2u.data.jtl;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -16,87 +16,87 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  */
 public class BaseSample extends BaseObject {
     @XStreamImplicit
-    @XStreamAlias("assertionResult")
+    @XStreamAlias( "assertionResult" )
     private List<AssertionResult> assertionResults;
 
     @XStreamAsAttribute
-    @XStreamAlias("t")
+    @XStreamAlias( "t" )
     private Integer elapsedTime; // miliseconds
 
     @XStreamAsAttribute
-    @XStreamAlias("lt")
+    @XStreamAlias( "lt" )
     private Integer latency; // miliseconds
 
     @XStreamAsAttribute
-    @XStreamAlias("ts")
+    @XStreamAlias( "ts" )
     private Long timestamp;
 
     @XStreamAsAttribute
-    @XStreamAlias("s")
+    @XStreamAlias( "s" )
     private boolean success;
 
     @XStreamAsAttribute
-    @XStreamAlias("lb")
+    @XStreamAlias( "lb" )
     private String label;
 
     @XStreamAsAttribute
-    @XStreamAlias("rc")
+    @XStreamAlias( "rc" )
     private Integer httpResponseCode;
 
     @XStreamAsAttribute
-    @XStreamAlias("rm")
+    @XStreamAlias( "rm" )
     private String httpResponseMessage;
 
     @XStreamAsAttribute
-    @XStreamAlias("tn")
+    @XStreamAlias( "tn" )
     private String threadName;
 
     @XStreamAsAttribute
-    @XStreamAlias("dt")
+    @XStreamAlias( "dt" )
     private String dataType;
 
     @XStreamAsAttribute
-    @XStreamAlias("de")
+    @XStreamAlias( "de" )
     private String dataEncoding;
 
     @XStreamAsAttribute
-    @XStreamAlias("by")
+    @XStreamAlias( "by" )
     private Integer bytes;
 
     @XStreamAsAttribute
-    @XStreamAlias("ng")
+    @XStreamAlias( "ng" )
     private Integer numberOfActiveThreadsInGroup;
 
     @XStreamAsAttribute
-    @XStreamAlias("na")
+    @XStreamAlias( "na" )
     private Integer numberOfAllActiveThreads;
 
     @XStreamAsAttribute
-    @XStreamAlias("hn")
+    @XStreamAlias( "hn" )
     private String hostname;
 
-    @XStreamAlias("responseHeader")
+    @XStreamAlias( "responseHeader" )
     private String responseHeader;
 
-    @XStreamAlias("requestHeader")
+    @XStreamAlias( "requestHeader" )
     private String requestHeader;
 
-    @XStreamAlias("responseData")
+    @XStreamAlias( "responseData" )
     private String responseData;
 
-    @XStreamAlias("samplerData")
+    @XStreamAlias( "samplerData" )
     private String samplerData;
 
-    @XStreamAlias("cookies")
+    @XStreamAlias( "cookies" )
     private String cookies;
 
-    @XStreamAlias("method")
+    @XStreamAlias( "method" )
     private String method;
 
-    @XStreamAlias("queryString")
+    @XStreamAlias( "queryString" )
     private String queryString;
 
-    @XStreamAlias("java.net.URL")
+    @XStreamAlias( "java.net.URL" )
     private String url;
 
     public BaseSample() {
@@ -285,5 +285,10 @@ public class BaseSample extends BaseObject {
 
     public void setUrl( String url ) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return toString( MULTILINE_NO_ADDRESS_STYLE );
     }
 }

@@ -85,18 +85,19 @@ public class JtlToJunitConverter implements Function<TestResults, TestSuites> {
     private TestCase convertHttpSample( HttpSample sample ) {
         return convertSample( sample );
     }
-}
 
-class ErroredOutAssertionPredicate implements Predicate<AssertionResult> {
-    @Override
-    public boolean apply( AssertionResult ar ) {
-        return ar.isError();
+    private static class ErroredOutAssertionPredicate implements Predicate<AssertionResult> {
+        @Override
+        public boolean apply( AssertionResult ar ) {
+            return ar.isError();
+        }
+    }
+
+    private static class FailedAssertionPredicate implements Predicate<AssertionResult> {
+        @Override
+        public boolean apply( AssertionResult ar ) {
+            return ar.isFailure();
+        }
     }
 }
 
-class FailedAssertionPredicate implements Predicate<AssertionResult> {
-    @Override
-    public boolean apply( AssertionResult ar ) {
-        return ar.isFailure();
-    }
-}

@@ -2,6 +2,8 @@ package com.tguzik.util.xstream;
 
 import static org.junit.Assert.assertEquals;
 
+import com.tguzik.objects.BaseObject;
+import com.tguzik.tests.Normalize;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,8 +23,7 @@ public class OmittingXStreamTest {
 
         SampleDataObject sdo = (SampleDataObject) xstream.fromXML( xml );
 
-        assertEquals(
-                "com.tguzik.util.xstream.SampleDataObject[\n" + "  name=That's the name\n" + "  number=1234\n" + "]", //
-                sdo.toString().replaceAll( "\r\n", "\n" ) );
+        assertEquals( "SampleDataObject[\n" + "  name=That's the name,\n" + "  number=1234\n" + "]", //
+                      Normalize.newLines( sdo.toString( BaseObject.MULTILINE_NO_ADDRESS_STYLE ) ) );
     }
 }

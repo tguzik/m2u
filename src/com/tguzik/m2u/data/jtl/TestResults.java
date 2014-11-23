@@ -3,7 +3,7 @@ package com.tguzik.m2u.data.jtl;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -48,17 +48,17 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  * @author Tomek
  * @see http://jmeter.apache.org/usermanual/listeners.html#attributes
  */
-@XStreamAlias("testResults")
+@XStreamAlias( "testResults" )
 public class TestResults extends BaseObject {
     @XStreamAsAttribute
     private String version;
 
     @XStreamImplicit
-    @XStreamAlias(impl = Sample.class, value = "sample")
+    @XStreamAlias( impl = Sample.class, value = "sample" )
     private final List<Sample> samples;
 
     @XStreamImplicit
-    @XStreamAlias(impl = HttpSample.class, value = "httpSample")
+    @XStreamAlias( impl = HttpSample.class, value = "httpSample" )
     private List<HttpSample> httpSamples;
 
     public TestResults() {
@@ -92,5 +92,10 @@ public class TestResults extends BaseObject {
 
     public void setHttpSamples( List<HttpSample> httpSamples ) {
         this.httpSamples = httpSamples;
+    }
+
+    @Override
+    public String toString() {
+        return toString( MULTILINE_NO_ADDRESS_STYLE );
     }
 }

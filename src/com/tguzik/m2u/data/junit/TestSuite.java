@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -179,5 +179,10 @@ public class TestSuite extends BaseObject {
         this.failuresInTests += tc.getFailures().size();
         this.timeSpentInMillis += tc.getTotalTimeSpent();
         this.testCases.add( tc );
+    }
+
+    @Override
+    public String toString() {
+        return toString( MULTILINE_NO_ADDRESS_STYLE );
     }
 }

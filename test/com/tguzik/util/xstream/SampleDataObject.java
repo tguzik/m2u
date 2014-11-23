@@ -1,9 +1,9 @@
 package com.tguzik.util.xstream;
 
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XStreamAlias("dataobj")
+@XStreamAlias( "dataobj" )
 class SampleDataObject extends BaseObject {
     private String name;
     private int number;

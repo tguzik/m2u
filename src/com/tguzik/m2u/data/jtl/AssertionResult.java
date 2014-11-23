@@ -1,6 +1,6 @@
 package com.tguzik.m2u.data.jtl;
 
-import com.tguzik.util.BaseObject;
+import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("assertionResult")
@@ -47,5 +47,10 @@ public class AssertionResult extends BaseObject {
 
     public void setFailureMessage( String failureMessage ) {
         this.failureMessage = failureMessage;
+    }
+
+    @Override
+    public String toString() {
+        return toString( MULTILINE_NO_ADDRESS_STYLE );
     }
 }

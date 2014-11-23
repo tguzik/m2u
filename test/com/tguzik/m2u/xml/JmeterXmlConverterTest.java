@@ -1,11 +1,12 @@
 package com.tguzik.m2u.xml;
 
-import static com.tguzik.m2u.testdata.TestHelper.removeCharacterFeed;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import com.tguzik.m2u.data.jtl.TestResults;
-import com.tguzik.m2u.testdata.TestHelper;
+import com.tguzik.objects.BaseObject;
+import com.tguzik.tests.Loader;
+import com.tguzik.tests.Normalize;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,8 +19,8 @@ public class JmeterXmlConverterTest {
     public void setUp() throws Exception {
         this.xstream = new JmeterXmlConverter();
 
-        this.input = TestHelper.fileToString( "test/", TestHelper.class, "sample-jtl-input.xml" );
-        this.expected = TestHelper.fileToString( "test/", TestHelper.class, "parsed-jtl.txt" );
+        this.input = Loader.loadFile( "test/", JmeterXmlConverterTest.class, "../testdata", "sample-jtl-input.xml" );
+        this.expected = Loader.loadFile( "test/", JmeterXmlConverterTest.class, "../testdata", "parsed-jtl.txt" );
     }
 
     @Test
@@ -31,6 +32,7 @@ public class JmeterXmlConverterTest {
     @Test
     public void testParsing() {
         TestResults obj = xstream.fromXML( input );
-        assertEquals( removeCharacterFeed( expected ), removeCharacterFeed( obj.toString() ) );
+        assertEquals( expected.trim(),
+                      Normalize.newLines( obj.toString( BaseObject.MULTILINE_NO_ADDRESS_STYLE ) ).trim() );
     }
 }
