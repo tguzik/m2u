@@ -55,7 +55,7 @@ public class TestSuite extends BaseObject {
     private int skippedTests;
 
     @XStreamAsAttribute
-    @XStreamAlias("tests")
+    @XStreamAlias("time")
     private long timeSpentInMillis;
 
     @XStreamAsAttribute
