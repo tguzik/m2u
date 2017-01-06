@@ -15,7 +15,7 @@ TestSuites[
   name=nose2-junit,
   packageName=<null>,
   skippedTests=0,
-  timeSpentInMillis=0.004,
+  timeSpentInSeconds=0.004,
   timestamp=0,
   properties=<null>,
   testCases=[TestCase[

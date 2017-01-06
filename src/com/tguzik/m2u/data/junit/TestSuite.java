@@ -8,7 +8,6 @@ import com.google.common.collect.Maps;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
-import com.thoughtworks.xstream.annotations.XStreamConverter;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
@@ -57,7 +56,7 @@ public class TestSuite extends BaseObject {
 
     @XStreamAsAttribute
     @XStreamAlias("time")
-    private double timeSpentInMillis;
+    private double timeSpentInSeconds;
 
     @XStreamAsAttribute
     @XStreamAlias("timestamp")
@@ -149,11 +148,11 @@ public class TestSuite extends BaseObject {
     }
 
     public double getTimeSpent() {
-        return timeSpentInMillis;
+        return timeSpentInSeconds;
     }
 
     public void setTimeSpent( double timeSpent ) {
-        this.timeSpentInMillis = timeSpent;
+        this.timeSpentInSeconds = timeSpent;
     }
 
     public long getTimestamp() {
@@ -179,7 +178,7 @@ public class TestSuite extends BaseObject {
     public void addTestCase( TestCase tc ) {
         this.errorsInTests += tc.getErrors().size();
         this.failuresInTests += tc.getFailures().size();
-        this.timeSpentInMillis += tc.getTotalTimeSpent();
+        this.timeSpentInSeconds += tc.getTotalTimeSpent();
         this.testCases.add( tc );
     }
 
