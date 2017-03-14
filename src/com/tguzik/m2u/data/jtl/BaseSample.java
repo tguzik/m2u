@@ -41,7 +41,7 @@ public class BaseSample extends BaseObject {
 
     @XStreamAsAttribute
     @XStreamAlias( "rc" )
-    private Integer httpResponseCode;
+    private String httpResponseCode;
 
     @XStreamAsAttribute
     @XStreamAlias( "rm" )
@@ -151,11 +151,11 @@ public class BaseSample extends BaseObject {
         this.label = label;
     }
 
-    public Integer getHttpResponseCode() {
+    public String getHttpResponseCode() {
         return httpResponseCode;
     }
 
-    public void setHttpResponseCode( Integer httpResponseCode ) {
+    public void setHttpResponseCode( String httpResponseCode ) {
         this.httpResponseCode = httpResponseCode;
     }
 
