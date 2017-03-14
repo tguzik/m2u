@@ -10,7 +10,6 @@ import com.tguzik.m2u.xml.JmeterXmlConverter;
 import com.tguzik.m2u.xml.JunitXmlConverter;
 import com.tguzik.tests.Loader;
 import com.tguzik.tests.Normalize;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -29,10 +28,8 @@ public class JtlToJunitConverterTest {
         this.jmeter = new JmeterXmlConverter();
         this.converter = new JtlToJunitConverter( new ProgramOptions() );
 
-        this.input = Loader.loadFile( "test/", JtlToJunitConverterTest.class, "../testdata", "sample-jtl-input.xml" )
-                           .trim();
-        this.expected = Loader.loadFile( "test/", JtlToJunitConverterTest.class, "../testdata", "converted-result.txt" )
-                              .trim();
+        this.input = Loader.loadFile( getClass(), "../testdata", "sample-jtl-input.xml" ).trim();
+        this.expected = Loader.loadFile( getClass(), "../testdata", "converted-result.txt" ).trim();
     }
 
     @Test

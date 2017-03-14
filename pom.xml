@@ -80,8 +80,6 @@
 
     <build>
         <finalName>${project.name}</finalName>
-        <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
         <defaultGoal>clean compile test assembly:single</defaultGoal>
 
         <plugins>
