@@ -8,12 +8,15 @@ public class CommandLineParser {
     public static final String CMD_OPTION_OUTPUT = "output";
     public static final String CMD_OPTION_TESTSUITE_NAME = "testSuiteName";
 
-    public static ProgramOptions parse( String[] argv ) throws Exception {
-        Options options = createCommandLineOptions();
-        PosixParser parser = new PosixParser();
+    public ProgramOptions parse( String[] argv ) throws Exception {
+        final Options options = createCommandLineOptions();
+        final DefaultParser parser = new DefaultParser();
 
         try {
-            return extractProgramOptions( parser.parse( options, argv ) );
+            final CommandLine cmd = parser.parse( options, argv );
+            return new ProgramOptions( cmd.getOptionValue( CMD_OPTION_INPUT ),
+                                       cmd.getOptionValue( CMD_OPTION_OUTPUT ),
+                                       cmd.getOptionValue( CMD_OPTION_TESTSUITE_NAME ) );
         }
         catch ( Exception e ) {
             new HelpFormatter().printHelp( APPLICATION_NAME, options );
@@ -21,43 +24,32 @@ public class CommandLineParser {
         }
     }
 
-    static ProgramOptions extractProgramOptions( CommandLine cmd ) {
-        ProgramOptions programOptions = new ProgramOptions();
+    protected Options createCommandLineOptions() {
+        final Options options = new Options();
 
-        programOptions.setInputFileName( cmd.getOptionValue( CMD_OPTION_INPUT ) );
-        programOptions.setOutputFileName( cmd.getOptionValue( CMD_OPTION_OUTPUT ) );
+        options.addOption( Option.builder()
+                                 .required()
+                                 .hasArg()
+                                 .argName( "JTL-XML-FILE" )
+                                 .longOpt( CMD_OPTION_INPUT )
+                                 .desc( "Input JTL test results file" )
+                                 .build() );
 
-        if ( cmd.hasOption( CMD_OPTION_TESTSUITE_NAME ) ) {
-            programOptions.setTestSuiteName( cmd.getOptionValue( CMD_OPTION_TESTSUITE_NAME ) );
-        }
+        options.addOption( Option.builder()
+                                 .required()
+                                 .hasArg()
+                                 .argName( "JUNIT-XML-FILE" )
+                                 .longOpt( CMD_OPTION_OUTPUT )
+                                 .desc( "JUnit XML test results file" )
+                                 .build() );
 
-        return programOptions;
-    }
-
-    static Options createCommandLineOptions() {
-        Options options = new Options();
-
-        // This builder pattern is atrocious :<
-        OptionBuilder.isRequired( true );
-        OptionBuilder.hasArg( true );
-        OptionBuilder.withArgName( "JTL-XML-FILE" );
-        OptionBuilder.withLongOpt( CMD_OPTION_INPUT );
-        OptionBuilder.withDescription( "Input JTL test results file" );
-        options.addOption( OptionBuilder.create() );
-
-        OptionBuilder.isRequired( true );
-        OptionBuilder.hasArg( true );
-        OptionBuilder.withArgName( "JUNIT-XML-FILE" );
-        OptionBuilder.withLongOpt( CMD_OPTION_OUTPUT );
-        OptionBuilder.withDescription( "JUnit XML test results file" );
-        options.addOption( OptionBuilder.create() );
-
-        OptionBuilder.isRequired( false );
-        OptionBuilder.hasArg( true );
-        OptionBuilder.withArgName( "TEST-SUITE-NAME" );
-        OptionBuilder.withLongOpt( CMD_OPTION_TESTSUITE_NAME );
-        OptionBuilder.withDescription( "Name for the generated test suite (default: jmeter)" );
-        options.addOption( OptionBuilder.create() );
+        options.addOption( Option.builder()
+                                 .required( false )
+                                 .hasArg()
+                                 .argName( "TEST-SUITE-NAME" )
+                                 .longOpt( CMD_OPTION_TESTSUITE_NAME )
+                                 .desc( "Name for the generated test suite (default: jmeter)" )
+                                 .build() );
 
         return options;
     }

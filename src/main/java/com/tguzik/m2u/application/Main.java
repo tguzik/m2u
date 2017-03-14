@@ -8,6 +8,7 @@ import com.tguzik.m2u.data.junit.TestSuites;
 import com.tguzik.m2u.xml.JmeterXmlConverter;
 import com.tguzik.m2u.xml.JunitXmlConverter;
 
+
 /**
  * Main class of the converter. Neither multiple input file nor multiple output
  * files are not supported yet - it would require some awkward command line
@@ -15,27 +16,19 @@ import com.tguzik.m2u.xml.JunitXmlConverter;
  */
 public class Main {
     public static void main( String[] args ) throws Exception {
-        ProgramOptions po = CommandLineParser.parse( args );
-        new Main( po ).process();
+        ProgramOptions po = new CommandLineParser().parse( args );
+        new Main().run( po );
     }
 
-    private final ProgramOptions programOptions;
+    public void run( ProgramOptions programOptions ) throws IOException {
+        try ( InputStreamReader input = new FileReader( programOptions.getInputFileName() );
+              OutputStreamWriter output = new FileWriter( programOptions.getOutputFileName() ) ) {
 
-    public Main( ProgramOptions po ) {
-        this.programOptions = po;
-    }
+            TestResults jmeterResults = new JmeterXmlConverter().fromXML( input );
+            TestSuites junitResults = new JtlToJunitConverter().apply( programOptions.getTestSuiteName(),
+                                                                       jmeterResults );
 
-    public void process() throws IOException {
-        final InputStreamReader input = new FileReader( programOptions.getInputFileName() );
-        final OutputStreamWriter output = new FileWriter( programOptions.getOutputFileName() );
-
-        TestResults jmeterResults = new JmeterXmlConverter().fromXML( input );
-
-        TestSuites junitResults = new JtlToJunitConverter( programOptions ).apply( jmeterResults );
-
-        new JunitXmlConverter().toXML( junitResults, output );
-
-        input.close();
-        output.close();
+            new JunitXmlConverter().toXML( junitResults, output );
+        }
     }
 }

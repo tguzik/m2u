@@ -2,11 +2,11 @@ package com.tguzik.m2u.data.jtl;
 
 import java.util.List;
 
-import com.google.common.collect.Lists;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import lombok.Data;
 
 /**
  * View of the data parsed:
@@ -48,54 +48,22 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
  * @author Tomek
  * @see http://jmeter.apache.org/usermanual/listeners.html#attributes
  */
+@Data
 @XStreamAlias( "testResults" )
-public class TestResults extends BaseObject {
+public class TestResults {
     @XStreamAsAttribute
     private String version;
 
     @XStreamImplicit
     @XStreamAlias( impl = Sample.class, value = "sample" )
-    private final List<Sample> samples;
+    private List<Sample> samples;
 
     @XStreamImplicit
     @XStreamAlias( impl = HttpSample.class, value = "httpSample" )
     private List<HttpSample> httpSamples;
 
-    public TestResults() {
-        this.samples = Lists.newArrayList();
-        this.httpSamples = Lists.newArrayList();
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion( String version ) {
-        this.version = version;
-    }
-
-    public List<Sample> getSamples() {
-        return samples;
-    }
-
-    public void addSample( Sample sample ) {
-        this.samples.add( sample );
-    }
-
-    public List<HttpSample> getHttpSamples() {
-        return httpSamples;
-    }
-
-    public void addHttpSample( HttpSample sample ) {
-        this.httpSamples.add( sample );
-    }
-
-    public void setHttpSamples( List<HttpSample> httpSamples ) {
-        this.httpSamples = httpSamples;
-    }
-
     @Override
     public String toString() {
-        return toString( MULTILINE_NO_ADDRESS_STYLE );
+        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
     }
 }

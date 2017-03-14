@@ -1,33 +1,34 @@
 package com.tguzik.m2u.application;
 
-import com.tguzik.objects.BaseObject;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Objects;
+import java.util.Optional;
 
+import com.tguzik.objects.BaseObject;
+import org.apache.commons.lang3.StringUtils;
+
+@ParametersAreNonnullByDefault
 public class ProgramOptions extends BaseObject {
-    private String inputFileName;
-    private String outputFileName;
-    private String testSuiteName = "jmeter";
+    private final String inputFileName;
+    private final String outputFileName;
+    private final String testSuiteName;
+
+    public ProgramOptions( String inputFileName, String outputFileName, @Nullable String testSuiteName ) {
+        this.inputFileName = Objects.requireNonNull( StringUtils.trimToNull( inputFileName ) );
+        this.outputFileName = Objects.requireNonNull( StringUtils.trimToNull( outputFileName ) );
+        this.testSuiteName = Optional.ofNullable( testSuiteName ).map( StringUtils::trimToNull ).orElse( "jmeter" );
+    }
 
     public String getInputFileName() {
         return inputFileName;
-    }
-
-    public void setInputFileName( String inputFileName ) {
-        this.inputFileName = inputFileName;
     }
 
     public String getOutputFileName() {
         return outputFileName;
     }
 
-    public void setOutputFileName( String outputFileName ) {
-        this.outputFileName = outputFileName;
-    }
-
     public String getTestSuiteName() {
         return testSuiteName;
-    }
-
-    public void setTestSuiteName( String testSuiteName ) {
-        this.testSuiteName = testSuiteName;
     }
 }

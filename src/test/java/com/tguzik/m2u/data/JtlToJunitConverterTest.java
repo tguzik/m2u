@@ -3,7 +3,6 @@ package com.tguzik.m2u.data;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import com.tguzik.m2u.application.ProgramOptions;
 import com.tguzik.m2u.data.jtl.TestResults;
 import com.tguzik.m2u.data.junit.TestSuites;
 import com.tguzik.m2u.xml.JmeterXmlConverter;
@@ -26,7 +25,7 @@ public class JtlToJunitConverterTest {
     public void setUp() throws Exception {
         this.junit = new JunitXmlConverter();
         this.jmeter = new JmeterXmlConverter();
-        this.converter = new JtlToJunitConverter( new ProgramOptions() );
+        this.converter = new JtlToJunitConverter();
 
         this.input = Loader.loadFile( getClass(), "../testdata", "sample-jtl-input.xml" ).trim();
         this.expected = Loader.loadFile( getClass(), "../testdata", "converted-result.txt" ).trim();
@@ -42,7 +41,7 @@ public class JtlToJunitConverterTest {
     @Ignore
     public void testParsing() {
         TestResults tr = jmeter.fromXML( input );
-        TestSuites ts = converter.apply( tr );
+        TestSuites ts = converter.apply( "[test suite name]", tr );
         String xml = Normalize.newLines( junit.toXML( ts ) );
 
         assertEquals( expected.trim(), xml.trim() );

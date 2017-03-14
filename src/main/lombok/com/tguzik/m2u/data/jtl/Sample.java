@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  *
  * @author Tomek
  */
-@XStreamAlias(impl = Sample.class, value = "sample")
+@XStreamAlias( impl = Sample.class, value = "sample" )
 public class Sample extends BaseSample {
     // no changes necessary
 }

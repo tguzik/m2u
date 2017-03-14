@@ -1,7 +1,6 @@
 package com.tguzik.m2u.xml;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.tguzik.m2u.data.jtl.TestResults;
 import com.tguzik.objects.BaseObject;
@@ -25,14 +24,17 @@ public class JmeterXmlConverterTest {
 
     @Test
     public void sanityCheck() {
-        assertFalse( input.isEmpty() );
-        assertFalse( expected.isEmpty() );
+        assertThat( input ).isNotEmpty();
+        assertThat( expected ).isNotEmpty();
     }
 
     @Test
     public void testParsing() {
-        TestResults obj = xstream.fromXML( input );
-        assertEquals( expected.trim(),
-                      Normalize.newLines( obj.toString( BaseObject.MULTILINE_NO_ADDRESS_STYLE ) ).trim() );
+        final TestResults obj = xstream.fromXML( input );
+        final String actual = Normalize.newLines( BaseObject.toString( obj, BaseObject.MULTILINE_NO_ADDRESS_STYLE ) )
+                                       .trim();
+
+        assertThat( actual ).isEqualTo( expected.trim() );
     }
+
 }
