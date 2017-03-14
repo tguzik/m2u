@@ -25,11 +25,11 @@ public class JtlToJunitConverter implements BiFunction<String, TestResults, Test
 
         safe( input.getSamples() ).stream()
                                   .map( this::convertSample )
-                                  .forEach( x -> singleSuite.getTestCases().add( x ) );
+                                  .forEach( singleSuite::addTestCase );
 
         safe( input.getHttpSamples() ).stream()
                                       .map( this::convertHttpSample )
-                                      .forEach( x -> singleSuite.getTestCases().add( x ) );
+                                      .forEach( singleSuite::addTestCase );
 
         suites.getTestSuites().add( singleSuite );
 

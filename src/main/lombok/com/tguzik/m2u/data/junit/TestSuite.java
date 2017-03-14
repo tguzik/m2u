@@ -1,13 +1,17 @@
 package com.tguzik.m2u.data.junit;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.tguzik.m2u.application.MultilineLfNoAddressStyle;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
+import lombok.Singular;
 
 /**
  * @author Tomek
@@ -62,22 +66,25 @@ public class TestSuite {
     @XStreamAlias( "timestamp" )
     private long timestamp;
 
+    @Singular
     @XStreamAlias( "properties" )
-    private Map<String, String> properties;
+    private final Map<String, String> properties = new HashMap<>();
 
+    @Singular
     @XStreamImplicit
     @XStreamAlias( "testcase" )
-    private List<TestCase> testCases;
+    private final List<TestCase> testCases = new ArrayList<>();
 
     public void addTestCase( TestCase tc ) {
         this.errorsInTests += tc.getErrors().size();
         this.failuresInTests += tc.getFailures().size();
         this.timeSpentInSeconds += tc.getTotalTimeSpentInSeconds();
+        this.totalTests++;
         this.testCases.add( tc );
     }
 
     @Override
     public String toString() {
-        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
+        return BaseObject.toString( this, MultilineLfNoAddressStyle.INSTANCE );
     }
 }

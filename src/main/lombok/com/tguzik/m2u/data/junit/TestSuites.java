@@ -1,12 +1,16 @@
 package com.tguzik.m2u.data.junit;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.tguzik.m2u.application.MultilineLfNoAddressStyle;
 import com.tguzik.objects.BaseObject;
+import com.tguzik.tests.Normalize;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
+import lombok.Singular;
 
 /**
  * Represents collection of all of the tests ran
@@ -40,12 +44,13 @@ public class TestSuites {
     @XStreamAlias( "time" )
     private long totalTimeSpent; // miliseconds
 
+    @Singular
     @XStreamImplicit
     @XStreamAlias( "testsuite" )
-    private List<TestSuite> testSuites;
+    private final List<TestSuite> testSuites = new ArrayList<>();
 
     @Override
     public String toString() {
-        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
+        return Normalize.newLines( BaseObject.toString( this, MultilineLfNoAddressStyle.INSTANCE ) );
     }
 }

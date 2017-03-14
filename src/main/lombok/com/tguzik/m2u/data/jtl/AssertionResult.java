@@ -1,5 +1,6 @@
 package com.tguzik.m2u.data.jtl;
 
+import com.tguzik.m2u.application.MultilineLfNoAddressStyle;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
@@ -21,6 +22,6 @@ public class AssertionResult {
 
     @Override
     public String toString() {
-        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
+        return BaseObject.toString( this, MultilineLfNoAddressStyle.INSTANCE );
     }
 }

@@ -1,12 +1,15 @@
 package com.tguzik.m2u.data.jtl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.tguzik.m2u.application.MultilineLfNoAddressStyle;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
+import lombok.Singular;
 
 /**
  * Some of the fields might seem to have redundant @XStreamAlias annotations,
@@ -16,9 +19,10 @@ import lombok.Data;
  */
 @Data
 public class BaseSample {
+    @Singular
     @XStreamImplicit
     @XStreamAlias( "assertionResult" )
-    private List<AssertionResult> assertionResults;
+    private final List<AssertionResult> assertionResults = new ArrayList<>();
 
     @XStreamAsAttribute
     @XStreamAlias( "t" )
@@ -102,7 +106,7 @@ public class BaseSample {
 
     @Override
     public String toString() {
-        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
+        return BaseObject.toString( this, MultilineLfNoAddressStyle.INSTANCE );
     }
 
 }

@@ -1,12 +1,15 @@
 package com.tguzik.m2u.data.jtl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.tguzik.m2u.application.MultilineLfNoAddressStyle;
 import com.tguzik.objects.BaseObject;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import lombok.Data;
+import lombok.Singular;
 
 /**
  * View of the data parsed:
@@ -54,16 +57,18 @@ public class TestResults {
     @XStreamAsAttribute
     private String version;
 
+    @Singular
     @XStreamImplicit
     @XStreamAlias( impl = Sample.class, value = "sample" )
-    private List<Sample> samples;
+    private final List<Sample> samples = new ArrayList<>();
 
+    @Singular
     @XStreamImplicit
     @XStreamAlias( impl = HttpSample.class, value = "httpSample" )
-    private List<HttpSample> httpSamples;
+    private final List<HttpSample> httpSamples = new ArrayList<>();
 
     @Override
     public String toString() {
-        return BaseObject.toString( this, BaseObject.MULTILINE_NO_ADDRESS_STYLE );
+        return BaseObject.toString( this, MultilineLfNoAddressStyle.INSTANCE );
     }
 }
