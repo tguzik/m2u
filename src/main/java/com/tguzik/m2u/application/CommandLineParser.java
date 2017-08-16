@@ -1,6 +1,13 @@
 package com.tguzik.m2u.application;
 
-import org.apache.commons.cli.*;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+
+import com.tguzik.m2u.constants.M2UConstants;
+import com.tguzik.m2u.params.ControlParams;
 
 public class CommandLineParser {
     public static final String APPLICATION_NAME = "jtl2junit";
@@ -14,6 +21,10 @@ public class CommandLineParser {
 
         try {
             final CommandLine cmd = parser.parse( options, argv );
+            
+            String filter = cmd.getOptionValue(M2UConstants.JUNIT_FILTER_SWITCH_NAME);
+            ControlParams.setParams(M2UConstants.JUNIT_FILTER_SWITCH_NAME, filter!=null?filter.toLowerCase():M2UConstants.FALSE);
+            
             return new ProgramOptions( cmd.getOptionValue( CMD_OPTION_INPUT ),
                                        cmd.getOptionValue( CMD_OPTION_OUTPUT ),
                                        cmd.getOptionValue( CMD_OPTION_TESTSUITE_NAME ) );
@@ -50,6 +61,14 @@ public class CommandLineParser {
                                  .longOpt( CMD_OPTION_TESTSUITE_NAME )
                                  .desc( "Name for the generated test suite (default: jmeter)" )
                                  .build() );
+        
+        options.addOption( Option.builder()
+				                .required( false )
+				                .hasArg()
+				                .argName( "JUNIT-FILTER_SWITCH-NAME")
+				                .longOpt( M2UConstants.JUNIT_FILTER_SWITCH_NAME )
+				                .desc( "Name for the junit test switch (default: false)" )
+				                .build() );
 
         return options;
     }

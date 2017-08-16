@@ -17,10 +17,13 @@ In order to build this jar, just run maven without any arguments:
     $ mvn
 
 ## How to use it?
-    java -jar jtl2junit.jar --input <jmeter.jtl> --output <junit.xml> [--testSuiteName <name of the test suite>]
+    java -jar jtl2junit.jar --input <jmeter.jtl> --output <junit.xml> [--testSuiteName <name of the test suite>] [--filter <true/false>]
 
 If the `<name of the test suite>` argument is not given, it will default to `jmeter`.
 
+Sometimes we want selected jmeter samplers' result to convert to junit
+If the `--filter` option is not set to `true`, all the jmeter sample results will be converted to junit result as it is.
+If `--filter true`, only those samples will be converted which have `@junit` as part of their name `ie label`
 
 ## License
 This software is available under GNU GPL license. Please see file `LICENSE` for details.
