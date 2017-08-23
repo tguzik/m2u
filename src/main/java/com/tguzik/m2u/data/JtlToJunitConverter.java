@@ -60,7 +60,7 @@ public class JtlToJunitConverter implements BiFunction<String, TestResults, Test
         	tc.setTestName( input.getThreadName() );
         }
         
-        tc.setTotalTimeSpentInSeconds( input.getElapsedTime() );
+        tc.setTotalTimeSpentInSeconds( input.getElapsedTime()/1000 );
         tc.getSystemOut().add( input.toString() );
 
         safe( input.getAssertionResults() ).stream()
