@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tguzik</groupId>
     <artifactId>m2u</artifactId>
-    <version>2014.xx-SNAPSHOT</version>
+    <version>LATEST-SNAPSHOT</version>
     <name>m2u</name>
     <packaging>jar</packaging>
 
