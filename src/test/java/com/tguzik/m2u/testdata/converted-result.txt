@@ -1,7 +1,7 @@
 <testsuites disabled="0" errors="0" failures="0" name="jmeter" tests="0" time="0">
-  <testsuite disabled="0" errors="0" failures="0" tests="2" name="jmeter" skipped="0" time="1454.0" timestamp="0">
+  <testsuite disabled="0" errors="0" failures="0" tests="2" name="jmeter" skipped="0" time="1.454" timestamp="0">
     <properties/>
-    <testcase assertions="0" classname="Thread Group 1-1" name="Thread Group 1-1" time="511.0">
+    <testcase assertions="0" classname="Thread Group 1-1" name="Thread Group 1-1" time="0.511">
       <system-out>Sample[
   assertionResults=&lt;null&gt;,
   elapsedTime=511,
@@ -28,7 +28,7 @@
   url=&lt;null&gt;
 ]</system-out>
     </testcase>
-    <testcase assertions="1" classname="Thread Group 2-1" name="Thread Group 2-1" time="943.0">
+    <testcase assertions="1" classname="Thread Group 2-1" name="Thread Group 2-1" time="0.943">
       <system-out>HttpSample[
   assertionResults=[AssertionResult[
   name=OK 2000000,

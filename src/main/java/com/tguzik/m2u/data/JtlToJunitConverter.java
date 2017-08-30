@@ -25,20 +25,17 @@ public class JtlToJunitConverter implements BiFunction<String, TestResults, Test
 
         suites.setTestGroupName( testSuiteName );
         singleSuite.setName( testSuiteName );
-        
-        String filter = ControlParams.getParam(M2UConstants.JUNIT_FILTER_SWITCH_NAME);
+
+        String filter = ControlParams.getParam( M2UConstants.JUNIT_FILTER_SWITCH_NAME );
         Predicate<BaseSample> p = a -> true;
-        if(filter != null && filter.equalsIgnoreCase(M2UConstants.TRUE)){
-        	p = a->a.getLabel().contains(M2UConstants.JUNIT_DECORATOR);
+        if ( filter != null && filter.equalsIgnoreCase( M2UConstants.TRUE ) ) {
+            p = a -> a.getLabel().contains( M2UConstants.JUNIT_DECORATOR );
         }
 
-        safe( input.getSamples() ).stream()
-        						  .filter(p)
-                                  .map( this::convertSample )
-                                  .forEach( singleSuite::addTestCase );
+        safe( input.getSamples() ).stream().filter( p ).map( this::convertSample ).forEach( singleSuite::addTestCase );
 
         safe( input.getHttpSamples() ).stream()
-        							  .filter(p)
+                                      .filter( p )
                                       .map( this::convertHttpSample )
                                       .forEach( singleSuite::addTestCase );
 
@@ -52,15 +49,16 @@ public class JtlToJunitConverter implements BiFunction<String, TestResults, Test
 
         tc.setAssertions( safe( input.getAssertionResults() ).size() );
         tc.setClassname( input.getThreadName() );
-        
-        String filter = ControlParams.getParam(M2UConstants.JUNIT_FILTER_SWITCH_NAME);
-        if(filter != null && filter.equalsIgnoreCase(M2UConstants.TRUE)){
-        	tc.setTestName( input.getLabel().replace(M2UConstants.JUNIT_DECORATOR, M2UConstants.BLANK) );
-        }else{
-        	tc.setTestName( input.getThreadName() );
+
+        String filter = ControlParams.getParam( M2UConstants.JUNIT_FILTER_SWITCH_NAME );
+        if ( filter != null && filter.equalsIgnoreCase( M2UConstants.TRUE ) ) {
+            tc.setTestName( input.getLabel().replace( M2UConstants.JUNIT_DECORATOR, M2UConstants.BLANK ) );
         }
-        
-        tc.setTotalTimeSpentInSeconds( input.getElapsedTime()/1000 );
+        else {
+            tc.setTestName( input.getThreadName() );
+        }
+
+        tc.setTotalTimeSpentInSeconds( ((double) input.getElapsedTime()) / 1000.0 );
         tc.getSystemOut().add( input.toString() );
 
         safe( input.getAssertionResults() ).stream()
