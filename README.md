@@ -17,7 +17,7 @@ In order to build this jar, just run maven without any arguments:
     $ mvn
 
 ## How to use it?
-    java -jar jtl2junit.jar --input <jmeter.jtl> --output <junit.xml> [--testSuiteName <name of the test suite>] [--filter <true/false>]
+    java -jar m2j.jar --input <jmeter.jtl> --output <junit.xml> [--testSuiteName <name of the test suite>] [--filter <true/false>]
 
 If the `<name of the test suite>` argument is not given, it will default to `jmeter`.
 
