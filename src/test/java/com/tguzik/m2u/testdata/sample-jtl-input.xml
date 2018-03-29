@@ -10,6 +10,6 @@
         </assertionResult>
         <responseData class="java.lang.String">Lorem ipsum dolor sit amet</responseData>
     </httpSample>
-    <sample t="511" lt="201" ts="1234567890123" s="true" lb="link goes here" rc="200" rm="OK" tn="Thread Group 1-1"
+    <sample t="511" lt="201" ts="1234567890123" s="true" lb="[sample's label]" rc="200" rm="OK" tn="Thread Group 1-1"
             dt="text" />
 </testResults>

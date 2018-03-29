@@ -1,14 +1,14 @@
 <testsuites disabled="0" errors="0" failures="0" name="jmeter" tests="0" time="0">
   <testsuite disabled="0" errors="0" failures="0" tests="2" name="jmeter" skipped="0" time="1.454" timestamp="0">
     <properties/>
-    <testcase assertions="0" classname="Thread Group 1-1" name="Thread Group 1-1" time="0.511">
+    <testcase assertions="0" classname="Thread Group 1-1 - [sample's label]" name="Thread Group 1-1 - [sample's label]" time="0.511">
       <system-out>Sample[
   assertionResults=&lt;null&gt;,
   elapsedTime=511,
   latency=201,
   timestamp=1234567890123,
   success=true,
-  label=link goes here,
+  label=[sample's label],
   httpResponseCode=200,
   httpResponseMessage=OK,
   threadName=Thread Group 1-1,
@@ -28,7 +28,7 @@
   url=&lt;null&gt;
 ]</system-out>
     </testcase>
-    <testcase assertions="1" classname="Thread Group 2-1" name="Thread Group 2-1" time="0.943">
+    <testcase assertions="1" classname="Thread Group 2-1 - HTTP Request" name="Thread Group 2-1 - HTTP Request" time="0.943">
       <system-out>HttpSample[
   assertionResults=[AssertionResult[
   name=OK 2000000,

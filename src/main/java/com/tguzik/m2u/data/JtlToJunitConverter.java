@@ -45,17 +45,18 @@ public class JtlToJunitConverter implements BiFunction<String, TestResults, Test
     }
 
     private TestCase convertSample( BaseSample input ) {
+        final String threadPlusLabel = input.getThreadName() + " - " + input.getLabel();
         TestCase tc = new TestCase();
 
         tc.setAssertions( safe( input.getAssertionResults() ).size() );
-        tc.setClassname( input.getThreadName() );
+        tc.setClassname( threadPlusLabel );
 
         String filter = ControlParams.getParam( M2UConstants.JUNIT_FILTER_SWITCH_NAME );
         if ( filter != null && filter.equalsIgnoreCase( M2UConstants.TRUE ) ) {
             tc.setTestName( input.getLabel().replace( M2UConstants.JUNIT_DECORATOR, M2UConstants.BLANK ) );
         }
         else {
-            tc.setTestName( input.getThreadName() );
+            tc.setTestName( threadPlusLabel );
         }
 
         tc.setTotalTimeSpentInSeconds( ((double) input.getElapsedTime()) / 1000.0 );

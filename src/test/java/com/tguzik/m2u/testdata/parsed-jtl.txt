@@ -6,7 +6,7 @@ TestResults[
   latency=201,
   timestamp=1234567890123,
   success=true,
-  label=link goes here,
+  label=[sample's label],
   httpResponseCode=200,
   httpResponseMessage=OK,
   threadName=Thread Group 1-1,
